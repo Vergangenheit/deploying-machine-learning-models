@@ -2,6 +2,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 
 from regression_model import pipeline
+<<<<<<< HEAD
 from regression_model.processing.data_management import load_dataset, save_pipeline
 from regression_model.config import config
 from regression_model import __version__ as _version
@@ -10,6 +11,15 @@ import logging
 
 
 _logger = logging.getLogger(__name__)
+=======
+from regression_model.processing.data_management import (
+    load_dataset, save_pipeline)
+from regression_model.config import config
+from regression_model.config import logging_config
+from regression_model import __version__ as _version
+
+_logger = logging_config.get_logger(__name__)
+>>>>>>> 6162c318b58b225e0061fccd6c64cd67fe205c1b
 
 
 def run_training() -> None:
@@ -20,6 +30,7 @@ def run_training() -> None:
 
     # divide train and test
     X_train, X_test, y_train, y_test = train_test_split(
+<<<<<<< HEAD
         data[config.FEATURES], data[config.TARGET], test_size=0.1, random_state=0
     )  # we are setting the seed here
 
@@ -33,4 +44,23 @@ def run_training() -> None:
 
 
 if __name__ == "__main__":
+=======
+        data[config.FEATURES],
+        data[config.TARGET],
+        test_size=0.1,
+        random_state=0)  # we are setting the seed here
+
+    # transform the target
+    y_train = np.log(y_train)
+    y_test = np.log(y_test)
+
+    pipeline.price_pipe.fit(X_train[config.FEATURES],
+                            y_train)
+
+    _logger.info(f'saving model version: {_version}')
+    save_pipeline(pipeline_to_persist=pipeline.price_pipe)
+
+
+if __name__ == '__main__':
+>>>>>>> 6162c318b58b225e0061fccd6c64cd67fe205c1b
     run_training()

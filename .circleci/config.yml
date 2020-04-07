@@ -33,6 +33,9 @@ jobs:
             . venv/bin/activate
             pip install -r packages/regression_model/requirements.txt
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6162c318b58b225e0061fccd6c64cd67fe205c1b
       - *fetch_data
       - run:
           name: Train model
@@ -43,11 +46,14 @@ jobs:
           name: Run tests
           command: |
             . venv/bin/activate
+<<<<<<< HEAD
 =======
             chmod +x ./scripts/fetch_kaggle_dataset.sh
             ./scripts/fetch_kaggle_dataset.sh
             unzip -j "packages/regression_model/regression_model/datasets/house-prices-advanced-regression-techniques" "*.csv" -d "packages/regression_model/regression_model/datasets/"
 >>>>>>> 723088a5d5ce769598c75d75ae34c8639efd35a0
+=======
+>>>>>>> 6162c318b58b225e0061fccd6c64cd67fe205c1b
             py.test -vv packages/regression_model/tests
 
   test_ml_api:
@@ -86,11 +92,14 @@ jobs:
           command: |
             . venv/bin/activate
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             chmod +x ./scripts/fetch_kaggle_dataset.sh ./scripts/publish_model.sh
             ./scripts/fetch_kaggle_dataset.sh
             unzip -j "packages/regression_model/regression_model/datasets/house-prices-advanced-regression-techniques" "*.csv" -d "packages/regression_model/regression_model/datasets/"
 >>>>>>> 723088a5d5ce769598c75d75ae34c8639efd35a0
+=======
+>>>>>>> 6162c318b58b225e0061fccd6c64cd67fe205c1b
             PYTHONPATH=./packages/regression_model python3 packages/regression_model/regression_model/train_pipeline.py
       - run: 
           name: Publish model to Gemfury

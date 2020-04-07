@@ -4,6 +4,7 @@ import pandas as pd
 from regression_model.processing.data_management import load_pipeline
 from regression_model.config import config
 from regression_model.processing.validation import validate_inputs
+<<<<<<< HEAD
 from regression_model import __version__ as _version
 
 import logging
@@ -12,6 +13,15 @@ import logging
 _logger = logging.getLogger(__name__)
 
 pipeline_file_name = f"{config.PIPELINE_SAVE_FILE}{_version}.pkl"
+=======
+from regression_model.config.logging_config import get_logger
+from regression_model import __version__ as _version
+
+
+_logger = get_logger(logger_name=__name__)
+
+pipeline_file_name = f'{config.PIPELINE_SAVE_FILE}{_version}.pkl'
+>>>>>>> 6162c318b58b225e0061fccd6c64cd67fe205c1b
 _price_pipe = load_pipeline(file_name=pipeline_file_name)
 
 
@@ -23,6 +33,7 @@ def make_prediction(*, input_data) -> dict:
     prediction = _price_pipe.predict(validated_data[config.FEATURES])
     output = np.exp(prediction)
 
+<<<<<<< HEAD
     results = {"predictions": output, "version": _version}
 
     _logger.info(
@@ -30,5 +41,13 @@ def make_prediction(*, input_data) -> dict:
         f"Inputs: {validated_data} "
         f"Predictions: {results}"
     )
+=======
+    results = {'predictions': output, 'version': _version}
+
+    _logger.info(
+        f'Making predictions with model version: {_version} '
+        f'Inputs: {validated_data} '
+        f'Predictions: {results}')
+>>>>>>> 6162c318b58b225e0061fccd6c64cd67fe205c1b
 
     return results
