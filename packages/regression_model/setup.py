@@ -73,8 +73,11 @@ setup(
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.6',
+<<<<<<< HEAD
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
+=======
+>>>>>>> 6162c318b58b225e0061fccd6c64cd67fe205c1b
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy'
     ],

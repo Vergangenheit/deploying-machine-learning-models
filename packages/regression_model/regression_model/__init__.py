@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import logging
 
 from regression_model.config import config
@@ -14,4 +15,12 @@ logger.propagate = False
 
 
 with open(VERSION_PATH, 'r') as version_file:
+=======
+import os
+
+from regression_model.config import config
+
+
+with open(os.path.join(config.PACKAGE_ROOT, 'VERSION')) as version_file:
+>>>>>>> 6162c318b58b225e0061fccd6c64cd67fe205c1b
     __version__ = version_file.read().strip()

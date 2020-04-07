@@ -1,4 +1,5 @@
 import pandas as pd
+<<<<<<< HEAD
 import joblib
 from sklearn.pipeline import Pipeline
 
@@ -13,11 +14,30 @@ _logger = logging.getLogger(__name__)
 
 def load_dataset(*, file_name: str) -> pd.DataFrame:
     _data = pd.read_csv(f"{config.DATASET_DIR}/{file_name}")
+=======
+from sklearn.externals import joblib
+from sklearn.pipeline import Pipeline
+
+from regression_model.config import config
+from regression_model.config import logging_config
+from regression_model import __version__ as _version
+
+_logger = logging_config.get_logger(__name__)
+
+
+def load_dataset(*, file_name: str
+                 ) -> pd.DataFrame:
+    _data = pd.read_csv(f'{config.DATASET_DIR}/{file_name}')
+>>>>>>> 6162c318b58b225e0061fccd6c64cd67fe205c1b
     return _data
 
 
 def save_pipeline(*, pipeline_to_persist) -> None:
     """Persist the pipeline.
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6162c318b58b225e0061fccd6c64cd67fe205c1b
     Saves the versioned model, and overwrites any previous
     saved models. This ensures that when the package is
     published, there is only one trained model that can be
@@ -25,15 +45,27 @@ def save_pipeline(*, pipeline_to_persist) -> None:
     """
 
     # Prepare versioned save file name
+<<<<<<< HEAD
     save_file_name = f"{config.PIPELINE_SAVE_FILE}{_version}.pkl"
+=======
+    save_file_name = f'{config.PIPELINE_SAVE_FILE}{_version}.pkl'
+>>>>>>> 6162c318b58b225e0061fccd6c64cd67fe205c1b
     save_path = config.TRAINED_MODEL_DIR / save_file_name
 
     remove_old_pipelines(files_to_keep=save_file_name)
     joblib.dump(pipeline_to_persist, save_path)
+<<<<<<< HEAD
     _logger.info(f"saved pipeline: {save_file_name}")
 
 
 def load_pipeline(*, file_name: str) -> Pipeline:
+=======
+    _logger.info(f'saved pipeline: {save_file_name}')
+
+
+def load_pipeline(*, file_name: str
+                  ) -> Pipeline:
+>>>>>>> 6162c318b58b225e0061fccd6c64cd67fe205c1b
     """Load a persisted pipeline."""
 
     file_path = config.TRAINED_MODEL_DIR / file_name
@@ -50,5 +82,9 @@ def remove_old_pipelines(*, files_to_keep) -> None:
     """
 
     for model_file in config.TRAINED_MODEL_DIR.iterdir():
+<<<<<<< HEAD
         if model_file.name not in [files_to_keep, "__init__.py"]:
+=======
+        if model_file.name not in [files_to_keep, '__init__.py']:
+>>>>>>> 6162c318b58b225e0061fccd6c64cd67fe205c1b
             model_file.unlink()

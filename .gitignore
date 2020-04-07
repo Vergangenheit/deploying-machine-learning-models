@@ -107,6 +107,11 @@ venv.bak/
 .idea/
 
 # datafiles
+<<<<<<< HEAD
 packages/regression_model/regression_model/datasets/*.csv
 packages/regression_model/regression_model/datasets/*.zip
 packages/regression_model/regression_model/datasets/*.txt
+=======
+train.csv
+test.csv
+>>>>>>> 6162c318b58b225e0061fccd6c64cd67fe205c1b
